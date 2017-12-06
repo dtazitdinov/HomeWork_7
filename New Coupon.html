@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://open-eshop.stqa.ru/" />
+<title>New Cupon</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">New Cupon</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>oc-panel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href='#collapseOne']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=div#collapseOne a[title='Coupons']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=i.glyphicon-pencil</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=i.glyphicon-pencil</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>var sufix = Math.floor(Math.random()*10); &quot;dtazitdinov_&quot;+sufix</td>
+	<td>name</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>var d= new Date(); var m=((d.getMonth()+1)&lt;10)?'0'+(d.getMonth()+1):(d.getMonth()+1); d.getFullYear()+&quot;-&quot;+m+&quot;-&quot;+d.getDate();</td>
+	<td>date</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>var date= new Date();&nbsp;&nbsp;var m=((date.getMonth()+1)&lt;10)?'0'+(date.getMonth()+1):(date.getMonth()+1);&nbsp;&nbsp;var d=((date.getDate()+1) &lt; 10)?'0'+(date.getDate()):(date.getDate()); d+&quot;-&quot;+m+&quot;-&quot;+Math.floor(date.getFullYear() % 100);</td>
+	<td>dateViceVersa</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.floor(Math.random()*50)+100</td>
+	<td>discount</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>Math.floor(Math.random()*20)</td>
+	<td>number_coupons</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>${name}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=discount_amount</td>
+	<td>${discount}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=valid_date</td>
+	<td>${date}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=number_coupons</td>
+	<td>${number_coupons}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button[name=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>css=div.alert-success h4</td>
+	<td>Success</td>
+</tr>
+<tr>
+	<td>waitForTable</td>
+	<td>//div[@class='table-responsive']//table.1.0</td>
+	<td>${name}</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>//div[@class='table-responsive']//table.1.2</td>
+	<td>${discount}.00</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>//div[@class='table-responsive']//table.1.3</td>
+	<td>${number_coupons}</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>//div[@class='table-responsive']//table.1.4</td>
+	<td>${dateViceVersa}</td>
+</tr>
+</tbody></table>
+</body>
+</html>
